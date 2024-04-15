@@ -38,43 +38,41 @@ def create_dataframe(data_frame, var, datapath):
     return data_frame
 
 """ ETL DATA """
-CTOTHER=pd.read_sas(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\adam_CTOTHER.sas7bdat", 
-											encoding='latin-1')
+CTOTHER=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\Testing\PQN7nlp\corpora\sentiment_analysis\adam_CTOTHER.sas7bdat", encoding='latin-1')
 pprint.pprint(CTOTHER.head(n=5))
 
-PNONCONOTH=pd.read_sas(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\adam_PNONCONOTH.sas7bdat" ,
-											encoding='latin-1')
+PNONCONOTH=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\Testing\PQN7nlp\corpora\sentiment_analysis\adam_PNONCONOTH.sas7bdat" ,encoding='latin-1')
 pprint.pprint(PNONCONOTH.head(n=5))
 
-PSPECLANG=pd.read_sas(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\adam_PSPECLANG.sas7bdat",
+PSPECLANG=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\Testing\PQN7nlp\corpora\sentiment_analysis\adam_PSPECLANG.sas7bdat",
                       encoding='latin-1')
 pprint.pprint(CTOTHER.head(n=5))
 
-PSTRATOTH=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\adam_PSTRATOTH.sas7bdat",
+PSTRATOTH=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\Testing\PQN7nlp\corpora\sentiment_analysis\adam_PSTRATOTH.sas7bdat",
                       encoding='latin-1')
 pprint.pprint(PSTRATOTH.head(n=5))
 
-PRSPNDOTH=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\adam_PRSPNDOTH.sas7bdat",
+PRSPNDOTH=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\Testing\PQN7nlp\corpora\sentiment_analysis\adam_PRSPNDOTH.sas7bdat",
                       encoding='latin-1')
 pprint.pprint(PRSPNDOTH.head(n=5))
 
-RSPNTOTH=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\adam_RSPNTOTH.sas7bdat",
+RSPNTOTH=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\Testing\PQN7nlp\corpora\sentiment_analysis\adam_RSPNTOTH.sas7bdat",
                      encoding='latin-1')
 pprint.pprint(PRSPNDOTH.head(n=5))
 
-SPECNOATTEMPT=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\adam_SPECNOATTEMPT.sas7bdat",
+SPECNOATTEMPT=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\Testing\PQN7nlp\corpora\sentiment_analysis\adam_SPECNOATTEMPT.sas7bdat",
                           encoding='latin-1')
 pprint.pprint(SPECNOATTEMPT.head(n=5))
 
-NCTPEROT=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\adam_NCTPEROT.sas7bdat",
+NCTPEROT=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\Testing\PQN7nlp\corpora\sentiment_analysis\adam_NCTPEROT.sas7bdat",
                      encoding='latin-1')
 pprint.pprint(NCTPEROT.head(n=5))
 
-NCTTELOT=pd.read_sas( r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\adam_NCTTELOT.sas7bdat",
+NCTTELOT=pd.read_sas( r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\Testing\PQN7nlp\corpora\sentiment_analysis\adam_NCTTELOT.sas7bdat",
                      encoding='latin-1')
 pprint.pprint(NCTTELOT.head(n=5))
 
-STRATOTH=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\adam_STRATOTH.sas7bdat",
+STRATOTH=pd.read_sas(r"\\cdc.gov\csp_project\CIPSEA_PII_NHIS_EXCHANGE\Census\Testing\PQN7nlp\corpora\sentiment_analysis\adam_STRATOTH.sas7bdat",
                      encoding='latin-1')
 pprint.pprint(STRATOTH.head(n=5))
 
@@ -103,7 +101,6 @@ PRSPNDOTH['TEXT_TOKEN'] = PRSPNDOTH['TEXT_TOKEN'].apply(lambda x: [item for item
 SPECNOATTEMPT['TEXT_TOKEN'] = SPECNOATTEMPT['TEXT_TOKEN'].apply(lambda x: [item for item in x if item not in stop_words])
 NCTPEROT['TEXT_TOKEN'] = NCTPEROT['TEXT_TOKEN'].apply(lambda x: [item for item in x if item not in stop_words])
 NCTTELOT['TEXT_TOKEN'] = NCTTELOT['TEXT_TOKEN'].apply(lambda x: [item for item in x if item not in stop_words])
-STRATOTH['TEXT_TOKEN'] = STRATOTH['TEXT_TOKEN'].apply(lambda x: [item for item in x if item not in stop_words])
 
 
 """ combine tokens into a list """
@@ -116,7 +113,6 @@ PRSPNDOTH['text_string'] = PRSPNDOTH['TEXT_TOKEN'].apply(lambda x: ' '.join([ite
 SPECNOATTEMPT['text_string'] = SPECNOATTEMPT['TEXT_TOKEN'].apply(lambda x: ' '.join([item for item in x if len(item) > 2]))
 NCTPEROT['text_string'] = NCTPEROT['TEXT_TOKEN'].apply(lambda x: ' '.join([item for item in x if len(item) > 2]))
 NCTTELOT['text_string'] = NCTTELOT['TEXT_TOKEN'].apply(lambda x: ' '.join([item for item in x if len(item) > 2]))
-STRATOTH['text_string'] = STRATOTH['TEXT_TOKEN'].apply(lambda x: ' '.join([item for item in x if len(item) > 2]))
 
 
 """ get all words in text_string """
@@ -129,7 +125,6 @@ all_wordsPRSPNDOTH = ' '.join([word for word in PRSPNDOTH['text_string']])
 all_wordsSPECNOATTEMPT = ' '.join([word for word in SPECNOATTEMPT['text_string']])
 all_wordsNCTPEROT = ' '.join([word for word in NCTPEROT['text_string']])
 all_wordsNCTTELOT = ' '.join([word for word in NCTTELOT['text_string']])
-all_wordsSTRATOTH = ' '.join([word for word in STRATOTH['text_string']])
 
 
 """ tokenize with word_tokenize """
@@ -142,7 +137,6 @@ tokenized_PRSPNDOTH = word_tokenize(all_wordsPRSPNDOTH)
 tokenized_SPECNOATTEMPT = word_tokenize(all_wordsSPECNOATTEMPT)
 tokenized_NCTPEROT = word_tokenize(all_wordsNCTPEROT)
 tokenized_NCTTELOT = word_tokenize(all_wordsNCTTELOT)
-tokenized_STRATOTH = word_tokenize(all_wordsSTRATOTH)
 
 
 """ derive frequency distribution of words """
@@ -155,7 +149,6 @@ fdistPRSPNDOTH = FreqDist(tokenized_PRSPNDOTH)
 fdistSPECNOATTEMPT = FreqDist(tokenized_SPECNOATTEMPT)
 fdistNCTPEROT = FreqDist(tokenized_NCTPEROT)
 fdistNCTTELOT = FreqDist(tokenized_NCTTELOT)
-fdistSTRATOTH = FreqDist(tokenized_STRATOTH)
 #pprint.pprint(fdist)
 #plt.figure(figsize=(175,10))
 #plt.xticks(fontsize=14, rotation=45)
@@ -172,7 +165,6 @@ PRSPNDOTH['text_string_fdist'] = PRSPNDOTH['TEXT_TOKEN'].apply(lambda x: ' '.joi
 SPECNOATTEMPT['text_string_fdist'] = SPECNOATTEMPT['TEXT_TOKEN'].apply(lambda x: ' '.join([item for item in x if fdistSPECNOATTEMPT[item] >= 1]))
 NCTPEROT['text_string_fdist'] = NCTPEROT['TEXT_TOKEN'].apply(lambda x: ' '.join([item for item in x if fdistNCTPEROT[item] >= 1]))
 NCTTELOT['text_string_fdist'] = NCTTELOT['TEXT_TOKEN'].apply(lambda x: ' '.join([item for item in x if fdistNCTTELOT[item] >= 1]))
-STRATOTH['text_string_fdist'] = STRATOTH['TEXT_TOKEN'].apply(lambda x: ' '.join([item for item in x if fdistSTRATOTH[item] >= 1]))
 
 
 """ lemmatize text """
@@ -186,7 +178,6 @@ PRSPNDOTH['text_string_lem'] = PRSPNDOTH['text_string_fdist'].apply(wordnet_lem.
 SPECNOATTEMPT['text_string_lem'] = SPECNOATTEMPT['text_string_fdist'].apply(wordnet_lem.lemmatize)
 NCTPEROT['text_string_lem'] = NCTPEROT['text_string_fdist'].apply(wordnet_lem.lemmatize)
 NCTTELOT['text_string_lem'] = NCTTELOT['text_string_fdist'].apply(wordnet_lem.lemmatize)
-STRATOTH['text_string_lem'] = NCTTELOT['text_string_fdist'].apply(wordnet_lem.lemmatize)
 
 analyzer = SentimentIntensityAnalyzer()
 CTOTHER['polarity'] = CTOTHER["text_string_lem"].apply(lambda x: analyzer.polarity_scores(x))
@@ -198,10 +189,9 @@ PRSPNDOTH['polarity'] = PRSPNDOTH["text_string_lem"].apply(lambda x: analyzer.po
 SPECNOATTEMPT['polarity'] = SPECNOATTEMPT["text_string_lem"].apply(lambda x: analyzer.polarity_scores(x))
 NCTPEROT['polarity'] = NCTPEROT["text_string_lem"].apply(lambda x: analyzer.polarity_scores(x))
 NCTTELOT['polarity'] = NCTTELOT["text_string_lem"].apply(lambda x: analyzer.polarity_scores(x))
-STRATOTH['polarity'] = STRATOTH["text_string_lem"].apply(lambda x: analyzer.polarity_scores(x))
 
 
-CTOTHER = pd.concat([ CTOTHER.drop(['VISITDATE'],axis=1), CTOTHER['polarity'].apply(pd.Series)], axis=1).fillna('')
+CTOTHER = pd.concat([ CTOTHER.drop(['VISITDATE'],axis=1), CTOTHER['polarity'].apply(pd.Series)], axis=1)
 PSPECLANG = pd.concat([ PSPECLANG.drop(['VISITDATE'],axis=1), PSPECLANG['polarity'].apply(pd.Series)], axis=1)
 PNONCONOTH = pd.concat([PNONCONOTH.drop(['VISITDATE'],axis=1), PNONCONOTH['polarity'].apply(pd.Series)], axis=1)
 PSTRATOTH = pd.concat([ PSTRATOTH.drop(['VISITDATE'],axis=1), PSTRATOTH['polarity'].apply(pd.Series)], axis=1)
@@ -210,7 +200,6 @@ PRSPNDOTH = pd.concat([ PRSPNDOTH.drop(['VISITDATE'],axis=1), PRSPNDOTH['polarit
 SPECNOATTEMPT = pd.concat([SPECNOATTEMPT.drop(['VISITDATE'],axis=1),  SPECNOATTEMPT['polarity'].apply(pd.Series)], axis=1)
 NCTPEROT = pd.concat([NCTPEROT.drop(['VISITDATE'],axis=1), NCTPEROT['polarity'].apply(pd.Series)], axis=1)
 NCTTELOT = pd.concat([NCTTELOT.drop(['VISITDATE'],axis=1), NCTTELOT['polarity'].apply(pd.Series)], axis=1)
-STRATOTH = pd.concat([STRATOTH.drop(['VISITDATE'],axis=1), STRATOTH['polarity'].apply(pd.Series)], axis=1)
 
 
 CTOTHER['sentiment'] = CTOTHER['compound'].apply(lambda x: 'positive' if x > 0 else 'neutral' if x == 0 else 'negative')
@@ -222,21 +211,6 @@ PRSPNDOTH['sentiment'] = PRSPNDOTH['compound'].apply(lambda x: 'positive' if x >
 SPECNOATTEMPT['sentiment'] = SPECNOATTEMPT['compound'].apply(lambda x: 'positive' if x > 0 else 'neutral' if x == 0 else 'negative')
 NCTPEROT['sentiment'] = NCTPEROT['compound'].apply(lambda x: 'positive' if x > 0 else 'neutral' if x == 0 else 'negative')
 NCTTELOT['sentiment'] = NCTTELOT['compound'].apply(lambda x: 'positive' if x > 0 else 'neutral' if x == 0 else 'negative')
-STRATOTH['sentiment'] = STRATOTH['compound'].apply(lambda x: 'positive' if x > 0 else 'neutral' if x == 0 else 'negative')
-
-
-"""write CSV output """
-CTOTHER.to_csv(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\CTOTHER_sentiment.csv")
-PSPECLANG.to_csv(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\PSPECLANG_sentiment.csv")
-PNONCONOTH.to_csv(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\PNONCONOTH_sentiment.csv")
-PSTRATOTH.to_csv(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\PSTRATOTH_sentiment.csv")
-RSPNTOTH.to_csv(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\RSPNTOTH_sentiment.csv")
-PRSPNDOTH.to_csv(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\PRSPNDOTH_sentiment.csv")
-SPECNOATTEMPT.to_csv(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\SPECNOATTEMPT_sentiment.csv")
-NCTPEROT.to_csv(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\NCTPEROT_sentiment.csv")
-NCTTELOT.to_csv(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\NCTTELOT_sentiment.csv")
-STRATOTH.to_csv(r"\\cdc.gov\csp_Project\CIPSEA_PII_NHIS_EXCHANGE\Census\PQN7nlp\corpus\sentiment_analysis\NCTTELOT_sentiment.csv")
-
 
 
 """
