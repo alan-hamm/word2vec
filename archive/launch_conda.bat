@@ -1,1 +1,0 @@
-cmd /k C:\Anaconda3\condabin\activate.bat
